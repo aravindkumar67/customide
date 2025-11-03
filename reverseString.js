@@ -1,13 +1,17 @@
-// A small, clear implementation that exports a function named `solution`
-// so the in-browser test runner will find it.
+// Plain function definitions (no ES module exports) so the in-page runner can eval them.
+// The runner looks for `solution` first, then `reverseString`.
 
-export function solution(s) {
-  // Use split/reverse/join (handles Unicode code points correctly for simple BMP cases)
-  // For full Unicode grapheme clusters you'd need a more advanced approach.
+function solution(s) {
+  // Use split/reverse/join. Note: for full Unicode grapheme clusters use a proper grapheme splitter.
   return s.split('').reverse().join('');
 }
 
-// Also provide a default named function for older examples
-export function reverseString(s) {
+function reverseString(s) {
   return solution(s);
+}
+
+// Expose to window/global in case runner checks global scope
+if (typeof window !== 'undefined') {
+  window.solution = solution;
+  window.reverseString = reverseString;
 }
