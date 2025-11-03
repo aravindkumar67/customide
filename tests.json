@@ -1,0 +1,6 @@
+[
+  { "input": "hello", "expected": "olleh" },
+  { "input": "", "expected": "" },
+  { "input": "A man, a plan", "expected": "nalp a ,nam A" },
+  { "input": "racecar", "expected": "racecar" }
+]
